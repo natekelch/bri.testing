@@ -421,7 +421,7 @@ function displayFormData() {
         'Bracket Entry Name': formData['bracket_name'], // Corrected key
         'State': formData['stateSelector'],
         'First Time Playing': formData['first_time'] === 'yes' ? 'Yes' : 'No',
-        'Recruited by': formData['referral']
+        'Referred by': formData['referral']
     };
 
     const rounds = {
@@ -1162,10 +1162,9 @@ function showWarningDialog(pageId) {
         </p>
         <p style="font-family: 'Poppins', Arial, sans-serif; color: #0e0e5f; font-size:small; font-weight: normal; font-style: italic; text-align: left; margin-top: 0px; margin-bottom: 10px">Complete your submission from a computer for the optimal experience.</p>
         <p style="font-family: 'Poppins', Arial, sans-serif; color: #0e0e5f; font-size:small; font-weight: bold; font-style: italic; text-align: left; margin-top: 0px; margin-bottom: 0px">Looking for a blank copy of the bracket?</p>
-        <button class="button-selections" onclick="window.open('2025_BRI_Bracket.pdf', '_blank')">2025 Bracket</button>
+        <button class="button-participant" onclick="window.open('2025_BRI_Bracket.pdf', '_blank')">2025 Bracket</button>
         <br>
         <br>
-        
         <h3 style="font-family: 'Poppins', Arial, sans-serif; color: #0e0e5f; text-align: left; margin-top: 0px; margin-bottom: 5px">Let's start with a few things about you.</h3>
         <form onsubmit="event.preventDefault(); showPage('tl_tournament-picks');">
             <div class="form-group">
@@ -1249,14 +1248,14 @@ function showWarningDialog(pageId) {
                     <option value="WY">Wyoming</option>
                 </select>
             </div><br>
-            <p style="font-family: 'Poppins', Arial, sans-serif; color: #0e0e5f; font-size:small; font-weight: bold; font-style: italic; text-align: left; margin-top: 0px; margin-bottom: 10px; margin-left: 10px">New to 2025, the BRI recruiting program! This program incentivizes partipiants for recruiting new users to the pool. Check out the BRI Recruiting Program to learn more.</p>
-            <p style="font-family: 'Poppins', Arial, sans-serif; color: #0e0e5f; font-size:small; font-weight: normal; font-style: italic; text-align: left; margin-top: 0px; margin-bottom: 10px; margin-left: 10px">Is this your first time participating in the BRI Bracket Challange? Check the box below and let us know who recruited you.</p>
+            <p style="font-family: 'Poppins', Arial, sans-serif; color: #0e0e5f; font-size:small; font-weight: bold; font-style: italic; text-align: left; margin-top: 0px; margin-bottom: 10px; margin-left: 10px">New to 2025, the BRI referral program! This program incentivizes partipiants for referring new users to the pool. Check out the BRI Referral Program to learn more.</p>
+            <p style="font-family: 'Poppins', Arial, sans-serif; color: #0e0e5f; font-size:small; font-weight: normal; font-style: italic; text-align: left; margin-top: 0px; margin-bottom: 10px; margin-left: 10px">Is this your first time participating in the BRI Bracket Challange? Check the box below and let us know who referred you.</p>
             <div class="form-group">
                 <label for="first_time" class="participant-input" style="color: #0e0e5f">First time playing?</label>
                 <input type="checkbox" id="first_time" name="first_time">
             </div>
             <div class="form-group">
-                <label for="entryReferral" class="participant-input" style="color: #0e0e5f">Recruited by: <br> <i>(First & Last Name)</i></label>
+                <label for="entryReferral" class="participant-input" style="color: #0e0e5f">Referred by: <br> <i>(First & Last Name)</i></label>
                 <input type="text" id="referral" name="referral">
             </div>
             
