@@ -182,7 +182,8 @@
         }
 
         /* Show the tooltip text when hovering over the tooltip container */
-        .tooltip:hover .tooltiptext {
+        .tooltip:hover .tooltiptext,
+        .tooltip.show .tooltiptext {
             visibility: visible;
             opacity: 1;
         }
@@ -1148,6 +1149,34 @@ function showWarningDialog(pageId) {
             });
         });
         
+    document.addEventListener('DOMContentLoaded', function() {
+        const tooltips = document.querySelectorAll('.tooltip');
+
+        tooltips.forEach(tooltip => {
+            tooltip.addEventListener('click', function() {
+                this.classList.toggle('show');
+            });
+
+            // Hide the tooltip when clicking outside of it
+            document.addEventListener('click', function(event) {
+                if (!tooltip.contains(event.target)) {
+                    tooltip.classList.remove('show');
+                }
+            });
+        });
+
+        // Validate entry name length on input
+        const bracketNameInput = document.getElementById('bracket_name');
+        bracketNameInput.addEventListener('input', function() {
+            const minLength = 5;
+            const maxLength = 10;
+            if (this.value.length < minLength || this.value.length > maxLength) {
+                this.setCustomValidity(`Bracket Entry Name must be between ${minLength} and ${maxLength} characters.`);
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    });
     </script>
 </head>
 <body>
@@ -1478,7 +1507,7 @@ function showWarningDialog(pageId) {
                     <p class="right-border"></p>
                     <p class="bottom-border right-border">(16) Norfolk St</p>
                     <p class="blank"></p>
-                    <p class="bottom-border">(8) UCONN</p>
+                    <p class="bottom-border">(8) UConn</p>
                     <p class="right-border"></p>
                     <p class="bottom-border right-border">(9) Oklahoma</p>
                     <p class="blank"></p>
@@ -1521,7 +1550,7 @@ function showWarningDialog(pageId) {
                     <div class="centered-matchup bottom-border right-border">
                         <select id="bl_round1_match2" name="bl_round1_match2" required>
                             <option value="">Select a team</option>
-                            <option value="(8) UCONN">(8) UCONN</option>
+                            <option value="(8) UConn">(8) UConn</option>
                             <option value="(9) Oklahoma">(9) Oklahoma</option>
                         </select>
                     </div>
